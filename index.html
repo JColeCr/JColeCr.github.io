@@ -1,9 +1,110 @@
+<!DOCTYPE html>
 <html>
-
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>title</title>
+</head>
 <body>
-  <h1>Joshua C. Crowder</h1>
-  <p>This is only for testing purposes!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
-</body>
+    <img class="starCorner" id="starTopRight" src="./TopRight.png">
+    <img class="starCorner" id="starBottomRight" src="./BottomRight.png">
+    <img class="starCorner" id="starTopLeft" src="./TopLeft.png">
+    <img class="starCorner" id="starBottomLeft" src="./BottomLeft.png">
+    <div id="mainHeader">
+        <h1>Joshua</h1>
+        <h2>and</h2>
+        <h1>Sarah</h1>
+    </div>
+    <h3 id="secondaryHeading">would like to cordially invite you to their Wedding/Reception/Celebration</h3>
+    <h2 id="dateLocation">Wednesday, April 1st, 2026 <br> • <br> Danielsville, GA</h2>
+    <div id="navbar">
+        <ul>
+            <li><a href="#" id="deskHomeButton" class="naviClick" data-target="homeImage"><h4>Home</h4></a></li>
+            <li><a href="#" id="deskStoryButton" class="naviClick" data-target="ourStory"><h4>Our Story</h4></a></li>
+            <li><a href="#" id="deskTravelButton" class="naviClick" data-target="travel"><h4>Travel</h4></a></li>
+            <li><a href="#" id="deskPhotosButton" class="naviClick" data-target="photos"><h4>Photos</h4></a></li>
+            <li><a href="#" id="deskPartyButton" class="naviClick" data-target="party"><h4>The Party</h4></a></li>
+            <li><a href="#" id="deskRegistryButton" class="naviClick" data-target="registry"><h4>Registry</h4></a></li>
+            <li id="noBorder"><a id="deskRSVPButton" class="naviClick" data-target="rsvp"><h4>RSVP</h4></a></li>
+        </ul>
+    </div>
+    <div id="mobileNav">
+        <h4>Navigation</h4>
+        <div id="mobLinks">
+        <a href="#" class="mobNavBorder" data-target="homeImage">Home</a>
+        <a href="#" class="mobNavBorder" data-target="ourStory">Our Story</a>
+        <a href="#" class="mobNavBorder" data-target="travel">Travel</a>
+        <a href="#" class="mobNavBorder" data-target="photos">Photos</a>
+        <a href="#" class="mobNavBorder" data-target="party">The Party</a>
+        <a href="#" class="mobNavBorder" data-target="registry">Registry</a>
+        <a href="#" data-target="rsvp">RSVP</a>
+    </div>
+    </div>
+    <div class="mainPart">
+        <img id="homeImage" class="active" src="" />
+        <p id="ourStory">I'm going to just make up random shit right now because eventually Sarah and I need to sit down and talk about how we want this written out.
+            Maybe some lorem ipsum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <p id="travel">
+            Unfortunately, for those traveling, we can not offer a hotel block but we will offer suggestions of hotels to stay either locally, or at nearby cities.
+        </p>
+        <div id="photos">
+            <button id="prevPhoto">&lt;</button>
+            <img id="currentPhoto" src="pic1.png" alt="Gallery Image">
+            <button id="nextPhoto">&gt;</button>
+        </div>
+        <p id="party">
+            Lay out the entire details here, as well as chefs to thank, food to be expected, other amenities, and such!
+        </p>
+        <p id="registry">
+            Placeholder text. Something about donate to the honeymoon fund!
+        </p>
+        <p id="rsvp">
+            Maybe figure out how to embed the form here? Otherwise Link.
+        </p>
+    </div>
+    <script>
 
+        function setupNavigation(selector) {
+            document.querySelectorAll(selector).forEach (link => {
+                link.addEventListener("click", function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute("data-target");
+                    const allSections = document.querySelectorAll(".mainPart > *");
+
+                    allSections.forEach(sec => sec.classList.remove("active"));
+
+                    document.getElementById(targetId).classList.add("active");
+
+                    if (this.closest("#mobileNav")) {
+                        document.getElementById("mobLinks").style.display = "";
+                    }
+                });
+            });
+        }
+        setupNavigation(".naviClick");
+        setupNavigation("#mobLinks a");
+       
+        const photos = [
+            "pic1.png",
+            "pic2.jpg"
+        ];
+
+        let currentIndex = 0;
+        const currentPhoto = document.getElementById("currentPhoto");
+
+        document.getElementById("prevPhoto").addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+        currentPhoto.src = photos[currentIndex];
+        });
+
+        document.getElementById("nextPhoto").addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % photos.length;
+        currentPhoto.src = photos[currentIndex];
+});
+    </script>
+</body>
 </html>
