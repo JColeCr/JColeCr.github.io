@@ -1,0 +1,309 @@
+/*Universal Styles & Notes*/
+/*Main Blue Hex: #0b1a36, Secondary Blue Hex: #2b3966, Tertiary Blue Hex: #3755b7, Bronze: #c3a161 */
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0b1a36;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: white;
+    text-shadow: 0px 0px .75rem rgba(255,255,255,1);
+}
+h2 {
+    color: #c3a161;
+    text-shadow: 0px 0px .9rem rgba(195,161,97,0.68);
+}
+h3 {
+    color: white;
+    text-shadow: 0px 0px .75rem rgba(255,255,255,1);
+}
+h4 {
+    color: white;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+/*Stars*/
+.starCorner {
+    position: fixed;
+}
+#starTopLeft,
+#starTopRight {
+    top: -2.5rem;
+}
+#starTopRight {
+    right: -3.5rem;
+}
+#starTopLeft {
+    left: -2.75rem;
+}
+#starBottomRight,
+#starBottomLeft {
+    bottom: -2.75rem;
+}
+#starBottomRight{
+    right: -1.5rem;
+}
+#starBottomLeft {
+    left: -3rem;
+}
+br {
+    display: none;
+}
+
+#mainHeader {
+    display: flex;
+    flex-direction: row;      /* keep items in a row */
+    flex-wrap: nowrap;        /* prevent them from wrapping */
+    justify-content: space-between;
+    align-items: center;
+}
+
+#homeImage {
+    box-shadow: 0px 0px 1.8rem rgba(43,57,102,0.60);
+    opacity: 0.7;
+    
+}
+#mobLinks {
+    display: none;
+}
+
+.naviClick {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.mainPart > * {
+  display: none; /* everything hidden by default */
+}
+
+.mainPart > *.active {
+  display: block;
+}
+
+#photos.active {
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 69vw;
+    margin: 2rem auto;
+    background-color: #0b1a36; /* optional: gives empty space a background */
+    overflow: hidden;
+}
+
+#currentPhoto {
+    width: 100%;
+    overflow: hidden;
+    height: 35vw;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: solid .5rem rgba(255,255,255,1);
+    box-shadow: 0px 0px 1.5rem rgba(0,0,0,0.5);
+}
+
+#photos button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 5;
+    user-select: none;
+}
+
+#prevPhoto { left: 0; }
+#nextPhoto { right: 0; }
+
+    .mainPart {
+        width: 70%;
+        height: auto;
+    }
+
+    .mainPart p {
+        color: white;
+        text-shadow: 0px 0px .75rem rgba(255,255,255,1);
+    }
+
+/*Desktop*/
+@media only screen and (min-width: 1200px) {
+    .starCorner {
+    height: 25rem;
+    width: 25rem;
+    }
+
+    #mainHeader h2 {
+        margin: 0 1.5rem;
+    }
+
+    li {
+        display: inline-block;
+        padding-right: .75rem;
+        margin-right: .75rem;
+        border-right: solid #2b3966 0.2rem;
+    }
+    #noBorder {
+        border-right: none;
+    }
+
+    #mobileNav {
+        display: none;
+    }
+
+    .mainPart p {
+        font-size: 2rem;
+    }
+}
+
+/*tablet*/
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .starCorner {
+        height: 17rem;
+        width: 17rem;
+    }
+
+        #mainHeader h2 {
+        margin: 0 1.5rem;
+    }
+
+    #secondaryHeading {
+        letter-spacing: 0.1rem;
+    }
+
+    br {
+        display: none;
+    }
+
+    li {
+        display: inline-block;
+        padding-right: .75rem;
+        margin-right: .75rem;
+        border-right: solid #2b3966 0.2rem;
+    }
+
+    #noBorder {
+        border-right: none;
+    }
+
+    #mobileNav {
+        display: none;
+    }
+
+    .mainPart p {
+        line-height: 1.5rem;
+    }
+}
+
+/*Most phones and small tablets*/
+@media only screen and (min-width:481px) and (max-width: 768px) {
+    .starCorner {
+        height: 17rem;
+        width: 17rem;
+    }
+
+        #mainHeader h2 {
+        margin: 0 1.5rem;
+    }
+    li {
+        display: inline-block;
+        padding-right: .75rem;
+        margin-right: .75rem;
+        border-right: solid #2b3966 0.2rem;
+    }
+    #noBorder {
+        border-right: none;
+    }
+    #mobileNav {
+        display: none;
+    }
+
+    .mainPart p {
+        line-height: 1.5rem;
+    }
+}
+
+/*SMall Phones*/
+@media only screen and (max-width: 480px) {
+    .starCorner {
+        height: 12rem;
+        width: 12rem;
+    }
+
+        #mainHeader h2 {
+        margin: 0 1.5rem;
+    }
+    li {
+        
+        display: inline-block;
+        padding-right: .75rem;
+        margin-right: .75rem;
+        border-right: solid #2b3966 0.2rem;
+    }
+    #secondaryHeading {
+        width: 100%;
+        text-align: center;
+    }
+
+    #dateLocation {
+        text-align: center;
+    }
+    
+    br {
+        display: block;
+    }
+
+    #navbar {
+        display: none;
+    }
+
+    #homeImage {
+        width: 90%;
+        bottom: 13%;
+    }
+
+    #mobileNav h4 {
+        text-shadow:0px 0px .75rem rgba(255,255,255,1);
+    }
+
+    #mobileNav:focus-within #mobLinks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #mobileNav a {
+    margin: 0.75rem 0.5rem;
+    text-shadow: 0px 0px .75rem rgba(255,255,255,1);
+    color: white;
+    padding-bottom: .6rem;
+  }
+    #mobLinks {
+  position: relative;
+  bottom: 2.4rem;
+  z-index: 10;
+  border: 0.25rem solid #526090;
+  background-color:#1b3970;
+    }
+
+    .mobNavBorder {
+        border-bottom: 0.15rem solid #526090;
+    }
+
+    .mainPart p {
+        line-height: 1.5rem;
+    }
+}
