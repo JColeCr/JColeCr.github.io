@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>title</title>
 </head>
 <body>
@@ -30,7 +30,7 @@
         </ul>
     </div>
     <div id="mobileNav">
-        <h4>Navigation</h4>
+        <h4 id="mobileNavToggle">Navigation</h4>
         <div id="mobLinks">
         <a href="#" class="mobNavBorder" data-target="homeImage">Home</a>
         <a href="#" class="mobNavBorder" data-target="ourStory">Our Story</a>
@@ -104,6 +104,23 @@
         document.getElementById("nextPhoto").addEventListener("click", () => {
         currentIndex = (currentIndex + 1) % photos.length;
         currentPhoto.src = photos[currentIndex];
+});
+
+const mobileToggle = document.getElementById("mobileNavToggle");
+const mobLinks = document.getElementById("mobLinks");
+
+mobileToggle.addEventListener("click", () => {
+    mobLinks.classList.toggle("show");
+    const activeSection = document.querySelector(".mainPart > .active")
+    if (activeSection) {
+        activeSection.classList.remove("active");
+    }
+});
+
+document.querySelectorAll("#mobLinks a").forEach(link => {
+    link.addEventListener("click", () => {
+        mobLinks.classList.remove("show");
+    });
 });
     </script>
 </body>
