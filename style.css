@@ -77,6 +77,8 @@ br {
 }
 #mobLinks {
     display: none;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .naviClick {
@@ -228,6 +230,7 @@ br {
     #noBorder {
         border-right: none;
     }
+    
     #mobileNav {
         display: none;
     }
@@ -280,23 +283,22 @@ br {
         text-shadow:0px 0px .75rem rgba(255,255,255,1);
     }
 
-    #mobileNav:focus-within #mobLinks{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+
   #mobileNav a {
     margin: 0.75rem 0.5rem;
     text-shadow: 0px 0px .75rem rgba(255,255,255,1);
     color: white;
     padding-bottom: .6rem;
+    text-decoration: none;
   }
-    #mobLinks {
-  position: relative;
-  bottom: 2.4rem;
-  z-index: 10;
-  border: 0.25rem solid #526090;
-  background-color:#1b3970;
+
+    #mobLinks.show {
+    display: flex;
+    position: relative;
+    bottom: 2.4rem;
+    z-index: 10;
+    border: 0.25rem solid #526090;
+    background-color:#1b3970;
     }
 
     .mobNavBorder {
